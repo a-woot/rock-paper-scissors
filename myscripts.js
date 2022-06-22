@@ -7,7 +7,33 @@ function computerPlay(items) {
 }
 
 function playRound(playerSelection, computerSelection) {
+    /*let playerSelection = (prompt("Please select rock, paper or scissors "));
+    if(playerSelection == "rock") && (computerSelection == "paper"){ 
+        return "Computer won"
+    }
+    */
+   if (playerSelection == computerSelection) {
+    return "Tie, no one wins"
+   }
 
+   if (playerSelection == "rock" && computerSelection === "scissors") {
+    return "You win!";
+   }
+   if (playerSelection == "paper" && computerSelection === "scissors") {
+    return "You lose!";
+   }
+   if (playerSelection == "scissors" && computerSelection === "rock") {
+    return "You lose!";
+   }
+   if (playerSelection == "paper" && computerSelection === "rock") {
+    return "You win!";
+   }
+   if (playerSelection == "scissors" && computerSelection === "paper") {
+    return "You win!";
+   }
+   if (playerSelection == "rock" && computerSelection === "paper") {
+    return "You lose!";
+   } 
 
     
 }
