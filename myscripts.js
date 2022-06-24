@@ -5,37 +5,45 @@ function computerPlay(items) {
     return items[Math.floor(Math.random()*items.length)];
     console.log(computerPlay(items));
 }
-
+let playerScore = 0;
+let compScore = 0;
 function playRound(playerSelection, computerSelection) {
     /*let playerSelection = (prompt("Please select rock, paper or scissors "));
     if(playerSelection == "rock") && (computerSelection == "paper"){ 
         return "Computer won"
     }
     */
+
+
    if (playerSelection == computerSelection) {
     return "Tie, no one wins"
    }
+   else if ((playerSelection == "paper" && computerSelection === "scissors")|| 
+   (playerSelection == "scissors" && computerSelection === "rock")
+   || (playerSelection == "rock" && computerSelection === "paper")) {
+    return "You lose"}
+   
 
-   if (playerSelection == "rock" && computerSelection === "scissors") {
-    return "You win! rock beats scissors!";
+   else if ((playerSelection == "rock" && computerSelection === "scissors") || (playerSelection == "paper" && computerSelection === "rock")
+   || (playerSelection == "scissors" && computerSelection === "paper"))  {
+    return "You win!";
+    playerScore = ++playerScore;
+    return playerScore;
    }
-   if (playerSelection == "paper" && computerSelection === "scissors") {
-    return "You lose! paper loses to scissors";
-   }
-   if (playerSelection == "scissors" && computerSelection === "rock") {
-    return "You lose! scissors loses to rock";
-   }
-   if (playerSelection == "paper" && computerSelection === "rock") {
-    return "You win! paper beats rock";
-   }
-   if (playerSelection == "scissors" && computerSelection === "paper") {
-    return "You win! scissors beats paper";
-   }
-   if (playerSelection == "rock" && computerSelection === "paper") {
-    return "You lose! rock loses to paper";
-   } 
-    
+
+   
+ 
+    console.log(playerScore);
 }
+
 const playerSelection = "rock";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
+
+function game() {
+
+    for (let i = 0; i < 5; i++) {
+    playRound(playerSelection, computerSelection)
+    }
+
+}
